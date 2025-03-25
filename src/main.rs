@@ -86,11 +86,11 @@ async fn main() -> Result<(), std::io::Error> {
         .route("/ceate_admin_user",post(create_admin_users))
         .with_state(app_state);
 
-    let listener = TcpListener::bind("182.70.116.222:3100")
+    let listener = TcpListener::bind("localhost:3100")
         .await
         .expect("Failed to bind to address");
 
-    println!("🚀 Server running at http://182.70.116.222:3100");
+    println!("🚀 Server running at http://localhost:3100");
 
     axum::serve(listener, app)
         .await
